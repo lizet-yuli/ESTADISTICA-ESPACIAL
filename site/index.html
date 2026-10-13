@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lizet Yuliana Coila Yucra — Portafolio Académico</title>
+  <meta name="description" content="Portafolio digital de Estadística Espacial: proyectos, análisis y visualizaciones de Lizet Yuliana Coila Yucra, Ingeniería Estadística e Informática, UNA Puno.">
+  <meta name="author" content="Lizet Yuliana Coila Yucra">
+  <meta property="og:title" content="Estadística Espacial — Portafolio Académico">
+  <meta property="og:description" content="Trabajos académicos de estadística espacial: proyectos, análisis y visualizaciones.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f59e0b'/%3E%3Cpath d='M16 7a6 6 0 0 0-6 6c0 4.4 6 12 6 12s6-7.600 6-12a6 6 0 0 0-6-6zm0 8.200a2.200 2.200 0 1 1 0-4.400 2.200 2.200 0 0 1 0 4.400z' fill='%230a111e'/%3E%3C/svg%3E">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-location-dot"></i></span>
+        <span>Lizet Yuliana Coila Yucra</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" class="active">Inicio</a></li>
+        <li><a href="#estadisticas">Estadísticas</a></li>
+        <li><a href="#trabajos">Mis trabajos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li>
+          <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" class="nav-github" data-repo-link target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="badge">
+          <i class="fa-solid fa-graduation-cap"></i> INGENIERÍA ESTADÍSTICA E INFORMÁTICA
+        </div>
+        <h1>ESTADÍSTICA<br><span class="highlight">ESPACIAL</span></h1>
+        <p>Portafolio digital con todos mis trabajos académicos relacionados a la estadística espacial, incluyendo proyectos, análisis y visualizaciones. Aquí podrás explorar mi experiencia y habilidades en esta área especializada.</p>
+        <div class="hero-actions">
+          <a href="#trabajos" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Ver trabajos</a>
+          <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" class="btn btn-ghost" data-repo-link target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> Repositorio
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Coloca tu foto en site/img/avatar.png; si no existe se muestran las iniciales -->
+        <img src="img/avatar.png" alt="Lizet Yuliana Coila Yucra" id="avatar">
+        <div class="avatar-fallback" id="avatarFallback" hidden>LC</div>
+      </div>
+    </div>
+    <a href="#estadisticas" class="hero-scroll" aria-label="Ir a las estadísticas">
+      <span>Explorar</span>
+      <i class="fa-solid fa-arrow-down"></i>
+    </a>
+  </section>
+
+  <!-- Sección Estadísticas -->
+  <section id="estadisticas" class="stats-section">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div>
+          <span class="stat-number" id="statTotal">—</span>
+          <span class="stat-label">Trabajos</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <div>
+          <span class="stat-number" id="statCompleted">—</span>
+          <span class="stat-label">Completados</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-regular fa-folder-open"></i></div>
+        <div>
+          <span class="stat-number" id="statFiles">—</span>
+          <span class="stat-label">Archivos publicados</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-regular fa-calendar-check"></i></div>
+        <div>
+          <span class="stat-number" id="statUpdated">—</span>
+          <span class="stat-label">Última actualización</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Trabajos -->
+  <section id="trabajos" class="portfolio-section">
+    <div class="container">
+      <span class="sub-title">TRABAJOS</span>
+      <h2>Portafolio académico</h2>
+      <div class="divider"></div>
+
+      <!-- Unidades + buscador -->
+      <div class="filters-header">
+        <div class="unit-tabs" id="unitTabs" role="group" aria-label="Filtrar por unidad">
+          <button class="unit-tab active" data-unit="todas">Todas las unidades</button>
+          <!-- Las unidades se agregan desde app.js -->
+        </div>
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" class="search-input" id="searchInput" placeholder="Buscar trabajos..." aria-label="Buscar trabajos">
+        </div>
+      </div>
+
+      <!-- Botones de Filtro -->
+      <div class="filter-buttons" id="filterButtons" role="group" aria-label="Filtrar por tipo de archivo">
+        <button class="filter-btn active" data-filter="todos"><i class="fa-solid fa-border-all"></i> Todos</button>
+        <!-- Los tipos de archivo se agregan desde app.js -->
+      </div>
+
+      <!-- Carga -->
+      <div class="projects-grid" id="loadingGrid" aria-hidden="true">
+        <div class="skeleton-card"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80 tall"></div><div class="skeleton-line"></div><div class="skeleton-line w-60"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80 tall"></div><div class="skeleton-line"></div><div class="skeleton-line w-60"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-40"></div><div class="skeleton-line w-80 tall"></div><div class="skeleton-line"></div><div class="skeleton-line w-60"></div></div>
+      </div>
+
+      <!-- Grid de Tarjetas (se llena desde app.js con manifest.json) -->
+      <div class="projects-grid" id="projectsGrid" hidden></div>
+
+      <!-- Sin resultados -->
+      <div class="empty-state" id="emptyState" hidden>
+        <i class="fa-regular fa-folder-open"></i>
+        <p id="emptyTitle">No se encontraron trabajos</p>
+        <p class="empty-hint" id="emptyHint">Intenta con otro término de búsqueda o filtro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contacto -->
+  <section id="contacto" class="contact-section">
+    <div class="container">
+      <span class="sub-title">CONTACTO</span>
+      <h2>Información de contacto</h2>
+      <div class="divider"></div>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:lcoila@est.unap.edu.pe">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <span class="contact-label">Correo institucional</span>
+            <p>lcoila@est.unap.edu.pe</p>
+          </div>
+        </a>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <span class="contact-label">Universidad</span>
+            <p>UNA Puno – Puno, Perú</p>
+          </div>
+        </div>
+        <a class="contact-card" href="https://github.com/lizet-yuli" target="_blank" rel="noopener">
+          <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <p>github.com/lizet-yuli</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#trabajos">Mis trabajos</a>
+      <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" data-repo-link target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p>Estadística Espacial · Portafolio académico · UNA Puno</p>
+  </footer>
+
+  <button class="back-to-top" id="scrollTopBtn" aria-label="Volver arriba"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

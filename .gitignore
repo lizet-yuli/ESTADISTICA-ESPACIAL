@@ -1,0 +1,15 @@
+# Sitio generado por scripts/build.mjs
+dist/
+
+# Respaldo de la primera versión del portafolio
+_original/
+
+# R / RStudio
+.Rhistory
+.RData
+.Rproj.user/
+
+# Sistema
+Thumbs.db
+.DS_Store
+node_modules/

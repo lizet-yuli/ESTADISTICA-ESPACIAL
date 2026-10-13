@@ -1,0 +1,9 @@
+{
+  "titulo": "Variable Aleatoria Gaussiana",
+  "descripcion": "En este trabajo se desarrollan y resuelven ejercicios sobre la variable aleatoria gaussiana, aplicando la distribución normal estándar, transformación Z y cálculo de probabilidades en distintos intervalos.",
+  "unidad": "Unidad 1",
+  "etiquetas": ["distribución normal", "probabilidad"],
+  "recursos": [
+    { "etiqueta": "Ver PDF", "archivo": "informe.pdf" }
+  ]
+}

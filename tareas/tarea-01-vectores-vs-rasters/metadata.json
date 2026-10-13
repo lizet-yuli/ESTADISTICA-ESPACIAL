@@ -1,0 +1,12 @@
+{
+  "titulo": "Vectores vs. Rasters",
+  "descripcion": "La tarea compara datos vectoriales y ráster en SIG, explicando sus diferencias, estructuras y usos en el análisis de información espacial.",
+  "unidad": "Unidad 1",
+  "etiquetas": ["SIG", "QGIS", "vectorial", "ráster"],
+  "miniatura": "figuras/capa-raster.jpeg",
+  "recursos": [
+    { "etiqueta": "Ver Raster", "archivo": "figuras/capa-raster.jpeg" },
+    { "etiqueta": "Ver Vectorial", "archivo": "figuras/capa-vectorial.jpeg" },
+    { "etiqueta": "Instalación de QGIS", "archivo": "figuras/instalacion-qgis.jpeg" }
+  ]
+}
