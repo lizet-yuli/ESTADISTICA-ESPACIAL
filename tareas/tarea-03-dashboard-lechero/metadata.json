@@ -1,9 +1,0 @@
-{
-  "titulo": "Dashboard de Gestión Lechera – Sausalito",
-  "descripcion": "Panel interactivo (UNALM) para el análisis y control del hato lechero. Incluye indicadores de producción diaria, inventario, estado reproductivo y monitoreo sanitario.",
-  "unidad": "Unidad 1",
-  "etiquetas": ["dashboard", "producción lechera"],
-  "recursos": [
-    { "etiqueta": "Ver HTML", "archivo": "dashboard.html" }
-  ]
-}

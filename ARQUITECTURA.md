@@ -97,14 +97,10 @@ Desde ahí el ciclo es: editar o agregar en `tareas/` → `npm run dev` para rev
 | **2. Contenido** | Subir los archivos que el build lista como pendientes, la foto `site/img/avatar.png`, y completar `fecha` y `unidad` reales de cada trabajo | Pendiente |
 | **3. Mejoras** | Miniatura para cada trabajo; reportes de R Markdown como HTML; página de detalle por trabajo si alguno necesita más explicación | Opcional |
 
-Archivos que faltan hoy (los nombres se pueden cambiar en cada `metadata.json`):
-
-| Trabajo | Archivos esperados |
-|:--|:--|
-| T02 Ubicación Espacial | `informe.pdf`, `analisis.R`, `mapa-departamentos.html`, `mapa-encuestados.html` |
-| T03 Dashboard de Gestión Lechera | `dashboard.html` |
-| T04 Variable Aleatoria Gaussiana | `informe.pdf` |
-| T05 Metodología de Jenks | `informe.pdf`, `analisis.R`, `mapa-jenks.html` |
+Trabajos por agregar cuando tengan sus archivos (se retiraron del sitio para no
+mostrar tarjetas vacías): Ubicación Espacial, Dashboard de Gestión Lechera,
+Variable Aleatoria Gaussiana y Metodología de Jenks. Para **quitar** un trabajo
+basta borrar su carpeta en `tareas/` y hacer `push`.
 
 ## 7. Decisiones y límites
 
