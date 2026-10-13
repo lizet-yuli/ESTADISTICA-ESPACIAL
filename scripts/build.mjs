@@ -2,6 +2,7 @@
 // y genera manifest.json a partir de los metadata.json.
 // Uso: node scripts/build.mjs   (sin dependencias, Node 18+)
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -167,6 +168,21 @@ function buildTask(folder, config) {
   };
 }
 
+// Añade ?v=<huella> al CSS y JS para que el navegador nunca combine
+// una página nueva con estilos o scripts viejos guardados en caché
+function stampAssets() {
+  const indexFile = path.join(OUT_DIR, 'index.html');
+  let html = fs.readFileSync(indexFile, 'utf8');
+
+  ['css/styles.css', 'js/app.js'].forEach(asset => {
+    const content = fs.readFileSync(path.join(OUT_DIR, asset));
+    const hash = crypto.createHash('sha1').update(content).digest('hex').slice(0, 8);
+    html = html.replace(`"${asset}"`, `"${asset}?v=${hash}"`);
+  });
+
+  fs.writeFileSync(indexFile, html);
+}
+
 function build() {
   errors.length = 0;
   warnings.length = 0;
@@ -189,6 +205,7 @@ function build() {
 
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.cpSync(SITE_DIR, OUT_DIR, { recursive: true });
+  stampAssets();
 
   tareas.forEach(task => {
     fs.cpSync(path.join(TASKS_DIR, task.id), path.join(OUT_DIR, 'tareas', task.id), {
