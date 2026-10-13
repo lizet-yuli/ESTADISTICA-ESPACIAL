@@ -75,7 +75,7 @@ function initNavbar() {
   });
 }
 
-// Si todavía no existe img/avatar.png se muestran las iniciales
+// Si todavía no existe img/avatar.png se muestra el emblema
 function initAvatar() {
   const avatar = document.getElementById('avatar');
   const fallback = document.getElementById('avatarFallback');
