@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAvatar();
   initHeroCanvas();
   initFilters();
+  initLightbox();
   initScrollTop();
   loadPortfolio();
 });
@@ -75,12 +76,13 @@ function initNavbar() {
   });
 }
 
-// Si todavía no existe img/avatar.png se muestra el emblema
+// Si no se encuentra img/avatar.jpg se muestra el emblema
 function initAvatar() {
   const avatar = document.getElementById('avatar');
+  const photo = document.getElementById('heroPhoto');
   const fallback = document.getElementById('avatarFallback');
   const showFallback = () => {
-    avatar.hidden = true;
+    photo.hidden = true;
     fallback.hidden = false;
   };
 
@@ -386,7 +388,10 @@ function cardHTML(task) {
     .join('');
 
   const thumbnail = task.miniatura
-    ? `<div class="card-thumbnail"><img src="${esc(task.miniatura)}" alt="" loading="lazy"></div>`
+    ? `<a class="card-thumbnail" href="${esc(task.miniatura)}" data-gallery="${esc(task.id)}" aria-label="Ampliar imagen de ${esc(task.titulo)}">
+         <img src="${esc(task.miniatura)}" alt="" loading="lazy">
+         <span class="thumbnail-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+       </a>`
     : '';
 
   const topics = task.etiquetas.length > 0
@@ -411,7 +416,7 @@ function cardHTML(task) {
         <h3>${esc(task.titulo)}</h3>
         <p>${esc(task.descripcion)}</p>
         ${topics}
-        <div class="card-buttons">${buttonsHTML(task.recursos)}</div>
+        <div class="card-buttons">${buttonsHTML(task)}</div>
         <div class="card-footer">
           <span class="card-meta">${meta}</span>
           <span class="status-badge ${status.css}"><i class="${status.icon}"></i> ${status.label}</span>
@@ -425,19 +430,20 @@ function formatDate(date) {
 }
 
 // Los recursos con el mismo "grupo" se juntan en un botón desplegable
-function buttonsHTML(resources) {
+function buttonsHTML(task) {
+  const resources = task.recursos;
   if (resources.length === 0) {
     return '<span class="btn btn-disabled"><i class="fa-regular fa-clock"></i> Archivos pendientes</span>';
   }
 
   const rendered = new Set();
   return resources.map(resource => {
-    if (!resource.grupo) return resourceLink(resource, 'btn btn-outline', 'btn btn-disabled');
+    if (!resource.grupo) return resourceLink(resource, task, 'btn btn-outline', 'btn btn-disabled');
     if (rendered.has(resource.grupo)) return '';
     rendered.add(resource.grupo);
 
     const items = resources.filter(item => item.grupo === resource.grupo);
-    if (items.length === 1) return resourceLink(resource, 'btn btn-outline', 'btn btn-disabled');
+    if (items.length === 1) return resourceLink(resource, task, 'btn btn-outline', 'btn btn-disabled');
 
     return `
       <details class="dropdown">
@@ -445,13 +451,13 @@ function buttonsHTML(resources) {
           <i class="${TYPES[resource.tipo].icon}"></i> ${esc(resource.grupo)} <i class="fa-solid fa-caret-down"></i>
         </summary>
         <div class="dropdown-menu">
-          ${items.map(item => resourceLink(item, 'dropdown-item', 'dropdown-item disabled')).join('')}
+          ${items.map(item => resourceLink(item, task, 'dropdown-item', 'dropdown-item disabled')).join('')}
         </div>
       </details>`;
   }).join('');
 }
 
-function resourceLink(resource, linkClass, disabledClass) {
+function resourceLink(resource, task, linkClass, disabledClass) {
   // El código fuente se abre en GitHub, por eso lleva su ícono
   const icon = resource.tipo === 'r' ? 'fa-brands fa-github' : TYPES[resource.tipo].icon;
   const content = `<i class="${icon}"></i> ${esc(resource.etiqueta)}`;
@@ -460,8 +466,87 @@ function resourceLink(resource, linkClass, disabledClass) {
     return `<span class="${disabledClass}" title="Archivo pendiente de subir" aria-disabled="true">${content}</span>`;
   }
 
-  const download = resource.tipo === 'zip' ? ' download' : '';
-  return `<a href="${esc(resource.url)}" class="${linkClass}" target="_blank" rel="noopener"${download}>${content}</a>`;
+  // Las imágenes se abren en el visor; el enlace queda como respaldo
+  const extra = resource.tipo === 'zip' ? ' download'
+    : resource.tipo === 'imagen' ? ` data-gallery="${esc(task.id)}"`
+      : '';
+  return `<a href="${esc(resource.url)}" class="${linkClass}" target="_blank" rel="noopener"${extra}>${content}</a>`;
+}
+
+/* ---------- Visor de imágenes ---------- */
+
+function initLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  const image = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  let items = [];
+  let index = 0;
+  let lastFocus = null;
+
+  function show(position) {
+    index = (position + items.length) % items.length;
+    image.src = items[index].url;
+    image.alt = items[index].caption;
+    caption.textContent = items.length > 1
+      ? `${items[index].caption}  ·  ${index + 1} / ${items.length}`
+      : items[index].caption;
+  }
+
+  function open(list, start) {
+    items = list;
+    lastFocus = document.activeElement;
+    prevBtn.hidden = nextBtn.hidden = items.length < 2;
+    show(start);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    image.removeAttribute('src');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  // Galería: todas las imágenes publicadas del trabajo, empezando por la elegida
+  document.getElementById('projectsGrid').addEventListener('click', event => {
+    const link = event.target.closest('[data-gallery]');
+    if (!link) return;
+    const task = state.tasks.find(item => item.id === link.dataset.gallery);
+    if (!task) return;
+    event.preventDefault();
+
+    const list = task.recursos
+      .filter(resource => resource.tipo === 'imagen' && resource.disponible)
+      .map(resource => ({ url: resource.url, caption: `${task.titulo} — ${resource.etiqueta.replace(/^ver\s+/i, '')}` }));
+    let start = list.findIndex(item => item.url === link.getAttribute('href'));
+    if (start === -1) {
+      list.unshift({ url: link.getAttribute('href'), caption: task.titulo });
+      start = 0;
+    }
+
+    link.closest('.dropdown')?.removeAttribute('open');
+    open(list, start);
+  });
+
+  prevBtn.addEventListener('click', () => show(index - 1));
+  nextBtn.addEventListener('click', () => show(index + 1));
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (lightbox.hidden) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft' && items.length > 1) show(index - 1);
+    if (event.key === 'ArrowRight' && items.length > 1) show(index + 1);
+  });
 }
 
 /* ---------- Botón para desplazar suavemente hacia arriba ---------- */

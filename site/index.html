@@ -9,6 +9,7 @@
   <meta property="og:title" content="Estadística Espacial — Portafolio Académico">
   <meta property="og:description" content="Trabajos académicos de estadística espacial: proyectos, análisis y visualizaciones.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lizet-yuli.github.io/ESTADISTICA-ESPACIAL/img/avatar.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f59e0b'/%3E%3Cg transform='translate(4 3.500)'%3E%3Cellipse cx='12' cy='18.500' rx='9' ry='3.200' fill='none' stroke='%230a111e' stroke-width='1.300' opacity='.45'/%3E%3Cellipse cx='12' cy='18.500' rx='5' ry='1.800' fill='none' stroke='%230a111e' stroke-width='1.300'/%3E%3Cpath d='M12 18.500s-5.200-5.200-5.200-9.700a5.200 5.200 0 0 1 10.400 0c0 4.500-5.200 9.700-5.200 9.700z' fill='%230a111e'/%3E%3Ccircle cx='12' cy='8.800' r='2' fill='%23f59e0b'/%3E%3C/g%3E%3C/svg%3E">
 
   <!-- Tipografías -->
@@ -41,6 +42,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio" class="active">Inicio</a></li>
         <li><a href="#estadisticas">Estadísticas</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#trabajos">Mis trabajos</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li>
@@ -70,8 +72,18 @@
         </div>
       </div>
       <div class="hero-image">
-        <!-- Coloca tu foto en site/img/avatar.png; si no existe se muestra el emblema -->
-        <img src="img/avatar.png" alt="Lizet Yuliana Coila Yucra" id="avatar">
+        <!-- Foto en site/img/avatar.jpg; si no existe se muestra el emblema -->
+        <figure class="hero-photo" id="heroPhoto">
+          <img src="img/avatar.jpg" alt="Lizet Yuliana Coila Yucra" id="avatar" width="720" height="1280">
+          <div class="photo-chip chip-field">
+            <span class="chip-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+            <div><strong>Estadística espacial</strong><small>R · QGIS · SIG</small></div>
+          </div>
+          <div class="photo-chip chip-location">
+            <span class="chip-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div><strong>UNA Puno, Perú</strong><small>15°50′S · 70°01′W</small></div>
+          </div>
+        </figure>
         <div class="hero-emblem" id="avatarFallback" hidden>
           <svg viewBox="0 0 340 340" width="340" height="340" role="img" aria-label="Emblema de Lizet Coila: un marcador de ubicación sobre un mapa con curvas de nivel, celdas ráster y puntos">
             <defs>
@@ -197,6 +209,57 @@
     </div>
   </section>
 
+  <!-- Sección Sobre mí -->
+  <section id="sobre-mi" class="about-section">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="sub-title">SOBRE MÍ</span>
+        <h2>Hola, soy Lizet</h2>
+        <div class="divider"></div>
+        <p>Soy estudiante de Ingeniería Estadística e Informática en la Universidad Nacional del Altiplano, en Puno. En este portafolio reúno mis trabajos del curso de Estadística Espacial: análisis de datos georreferenciados, comparación de datos vectoriales y ráster, mapas temáticos e interactivos y clasificación de variables con métodos como los cortes naturales de Jenks.</p>
+        <p>Me interesa convertir datos con ubicación en mapas y visualizaciones claras que ayuden a entender lo que ocurre en el territorio.</p>
+
+        <ul class="about-facts">
+          <li>
+            <span class="fact-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <div><span class="fact-label">Carrera</span>Ingeniería Estadística e Informática</div>
+          </li>
+          <li>
+            <span class="fact-icon"><i class="fa-solid fa-building-columns"></i></span>
+            <div><span class="fact-label">Universidad</span>UNA Puno</div>
+          </li>
+          <li>
+            <span class="fact-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+            <div><span class="fact-label">Curso</span>Estadística Espacial</div>
+          </li>
+          <li>
+            <span class="fact-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div><span class="fact-label">Ubicación</span>Puno, Perú</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>Herramientas</h3>
+        <div class="skill-chips">
+          <span><i class="fa-brands fa-r-project"></i> R</span>
+          <span><i class="fa-solid fa-earth-americas"></i> QGIS</span>
+          <span><i class="fa-brands fa-html5"></i> HTML y CSS</span>
+          <span><i class="fa-brands fa-github"></i> Git y GitHub</span>
+        </div>
+        <h3>Temas del curso</h3>
+        <div class="skill-chips topics">
+          <span>Datos vectoriales y ráster</span>
+          <span>Georreferenciación</span>
+          <span>Mapas interactivos</span>
+          <span>Cortes naturales de Jenks</span>
+          <span>Dashboards</span>
+          <span>Distribución normal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Sección Trabajos -->
   <section id="trabajos" class="portfolio-section">
     <div class="container">
@@ -283,6 +346,17 @@
     </div>
     <p>Estadística Espacial · Portafolio académico · UNA Puno</p>
   </footer>
+
+  <!-- Visor de imágenes de los trabajos -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes" hidden>
+    <button class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <figure>
+      <img id="lightboxImg" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
 
   <button class="back-to-top" id="scrollTopBtn" aria-label="Volver arriba"><i class="fa-solid fa-chevron-up"></i></button>
 

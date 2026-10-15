@@ -94,7 +94,7 @@ Desde ahí el ciclo es: editar o agregar en `tareas/` → `npm run dev` para rev
 |:--|:--|:--|
 | **0. Base** | Estructura de carpetas, build con validación, sitio dinámico, servidor local, workflow de publicación, repositorio enlazado | Hecho |
 | **1. Publicación** | Primer `push`, activar Pages, comprobar el sitio en línea | Pendiente (sección 5) |
-| **2. Contenido** | Subir los archivos que el build lista como pendientes, la foto `site/img/avatar.png`, y completar `fecha` y `unidad` reales de cada trabajo | Pendiente |
+| **2. Contenido** | Foto de perfil (`site/img/avatar.jpg`, hecho); agregar los trabajos retirados cuando tengan sus archivos y completar `fecha` y `unidad` reales de cada uno | En curso |
 | **3. Mejoras** | Miniatura para cada trabajo; reportes de R Markdown como HTML; página de detalle por trabajo si alguno necesita más explicación | Opcional |
 
 Trabajos por agregar cuando tengan sus archivos (se retiraron del sitio para no

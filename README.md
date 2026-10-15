@@ -13,7 +13,7 @@ carpeta y el sitio se arma solo a partir de ellas.
 │   ├── index.html
 │   ├── css/styles.css
 │   ├── js/app.js
-│   └── img/                 avatar.png (foto del inicio)
+│   └── img/                 avatar.jpg (foto del inicio)
 ├── tareas/                  Un trabajo por carpeta
 │   └── tarea-01-.../
 │       ├── metadata.json    Título, descripción y archivos del trabajo

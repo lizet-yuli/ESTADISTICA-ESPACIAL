@@ -231,11 +231,97 @@ section {
   animation: fadeInUp 0.8s var(--ease-out) 0.15s both;
 }
 
-.hero-image img {
+/* Foto del hero: marco desplazado, retícula de puntos y etiquetas flotantes */
+.hero-photo {
+  position: relative;
+  width: 340px;
+  margin: 0 18px 18px 0;
+}
+
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(18px, 18px);
+  border: 2px solid var(--accent-orange);
+  border-radius: 28px;
+}
+
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: -34px;
+  left: -34px;
+  width: 140px;
+  height: 140px;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.45) 1.3px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+.hero-photo img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
-  max-width: 380px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 12%;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.photo-chip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 10px;
+  background: rgba(14, 23, 38, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-dark);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  animation: chipFloat 5s ease-in-out infinite;
+}
+
+.photo-chip strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.photo-chip small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.chip-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
+  background: var(--accent-orange);
+  color: var(--bg-dark);
+}
+
+.chip-field {
+  top: 36px;
+  right: -48px;
+}
+
+.chip-location {
+  bottom: 44px;
+  left: -52px;
+  animation-delay: -2.5s;
 }
 
 /* Emblema del hero: marcador de ubicación sobre un mapa (se anima con CSS) */
@@ -435,6 +521,115 @@ section {
   text-transform: uppercase;
 }
 
+/* Sección Sobre mí */
+.about-section {
+  background-color: var(--bg-dark);
+  padding: 5rem 8%;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-section h2 {
+  color: var(--text-primary);
+}
+
+.about-text p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about-facts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 2rem;
+}
+
+.about-facts li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.fact-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--accent-orange);
+}
+
+.fact-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.about-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.about-card h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.about-card h3:not(:first-child) {
+  margin-top: 26px;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-chips span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-dark);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skill-chips i {
+  color: var(--accent-orange);
+}
+
+.skill-chips.topics span {
+  border-color: rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.06);
+  color: #bae6fd;
+  font-size: 0.8rem;
+}
+
 /* Sección Portafolio */
 .portfolio-section {
   background-color: var(--bg-light);
@@ -602,10 +797,13 @@ h2 {
 }
 
 .card-thumbnail {
+  position: relative;
+  display: block;
   height: 170px;
   overflow: hidden;
   border-radius: 8px 8px 0 0;
   background: #e2e8f0;
+  cursor: zoom-in;
 }
 
 .card-thumbnail img {
@@ -614,7 +812,97 @@ h2 {
   object-fit: cover;
   object-position: top left;
   display: block;
+  transition: transform 0.5s var(--ease-out);
 }
+
+.card-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.thumbnail-zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(10, 17, 30, 0.75);
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card-thumbnail:hover .thumbnail-zoom,
+.card-thumbnail:focus-visible .thumbnail-zoom {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Visor de imágenes */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 5rem;
+  background: rgba(5, 9, 18, 0.96);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease;
+}
+
+.lightbox figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightbox img {
+  max-width: min(1100px, 100%);
+  max-height: calc(100vh - 10rem);
+  border-radius: 10px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox figcaption {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.lightbox-btn {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-dark);
+  border-radius: 50%;
+  background: rgba(14, 23, 38, 0.9);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-btn:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.lightbox-close { top: 18px; right: 18px; }
+.lightbox-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 18px; top: 50%; transform: translateY(-50%); }
 
 .card-body {
   flex: 1;
@@ -935,6 +1223,16 @@ a.contact-card:hover {
 }
 
 /* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1002,8 +1300,33 @@ a.contact-card:hover {
     justify-content: center;
   }
 
-  .hero-image img {
-    max-width: 240px;
+  .hero-photo {
+    width: 250px;
+    margin: 0 12px 12px 0;
+  }
+
+  .hero-photo::before {
+    transform: translate(12px, 12px);
+    border-radius: 22px;
+  }
+
+  .hero-photo img {
+    border-radius: 22px;
+  }
+
+  .chip-field {
+    top: 22px;
+    right: -34px;
+  }
+
+  .chip-location {
+    bottom: 28px;
+    left: -34px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .hero-emblem {
@@ -1037,6 +1360,50 @@ a.contact-card:hover {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .about-section {
+    padding: 4rem 5%;
+  }
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-chip {
+    padding: 7px 12px 7px 7px;
+    gap: 8px;
+  }
+
+  .photo-chip strong {
+    font-size: 0.74rem;
+  }
+
+  .chip-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .chip-field {
+    right: -26px;
+  }
+
+  .chip-location {
+    left: -26px;
+  }
+
+  .lightbox {
+    padding: 4.5rem 1rem 6rem;
+  }
+
+  .lightbox-prev, .lightbox-next {
+    top: auto;
+    bottom: 22px;
+    transform: none;
+  }
+
+  .lightbox-prev { left: calc(50% - 56px); }
+  .lightbox-next { right: calc(50% - 56px); }
 
   .search-wrapper, .search-input {
     width: 100%;
