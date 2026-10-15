@@ -13,7 +13,8 @@ carpeta y el sitio se arma solo a partir de ellas.
 │   ├── index.html
 │   ├── css/styles.css
 │   ├── js/app.js
-│   └── img/                 avatar.jpg (foto del inicio)
+│   └── img/                 avatar.jpg (foto de Sobre mí), logo-facultad.png
+│                            y logo-unap.png (logos del inicio, opcionales)
 ├── tareas/                  Un trabajo por carpeta
 │   └── tarea-01-.../
 │       ├── metadata.json    Título, descripción y archivos del trabajo

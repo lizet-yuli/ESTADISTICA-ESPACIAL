@@ -19,7 +19,10 @@ const state = { tasks: [], unit: 'todas', type: 'todos', query: '' };
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initAvatar();
+  initLogos();
   initHeroCanvas();
+  initHud();
+  initConsole();
   initFilters();
   initLightbox();
   initScrollTop();
@@ -79,7 +82,7 @@ function initNavbar() {
 // Si no se encuentra img/avatar.jpg se muestra el emblema
 function initAvatar() {
   const avatar = document.getElementById('avatar');
-  const photo = document.getElementById('heroPhoto');
+  const photo = document.getElementById('profilePhoto');
   const fallback = document.getElementById('avatarFallback');
   const showFallback = () => {
     photo.hidden = true;
@@ -90,6 +93,105 @@ function initAvatar() {
   else avatar.addEventListener('error', showFallback);
 }
 
+// Logos de la facultad y la universidad: si el archivo no existe queda el ícono
+function initLogos() {
+  document.querySelectorAll('.inst-logo img').forEach(img => {
+    const ready = () => img.parentElement.classList.add('has-img');
+    const fail = () => img.remove();
+
+    if (img.complete) {
+      if (img.naturalWidth > 0) ready();
+      else fail();
+    } else {
+      img.addEventListener('load', ready);
+      img.addEventListener('error', fail);
+    }
+  });
+}
+
+/* ---------- Panel HUD: coordenadas y brújula que siguen al cursor ---------- */
+
+function initHud() {
+  const hero = document.getElementById('inicio');
+  const xy = document.getElementById('hudXY');
+  const latLon = document.getElementById('hudLatLon');
+  const compass = document.getElementById('hudCompass');
+  const needle = document.getElementById('compassNeedle');
+  const azimuth = document.getElementById('hudAzimuth');
+
+  // Centro del mapa: Puno
+  const LAT = -15.8402;
+  const LON = -70.0219;
+  let pending = null;
+  let heading = 0;
+
+  function update(event) {
+    const rect = hero.getBoundingClientRect();
+    const x = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1);
+    const y = Math.min(Math.max((event.clientY - rect.top) / rect.height, 0), 1);
+
+    xy.textContent = `X: ${x.toFixed(4)} | Y: ${y.toFixed(4)}`;
+    latLon.textContent = `LAT ${(LAT + (0.5 - y) * 0.24).toFixed(4)} · LON ${(LON + (x - 0.5) * 0.36).toFixed(4)}`;
+
+    // Rumbo desde la brújula hacia el cursor (0° = norte), girando por el camino más corto
+    const box = compass.getBoundingClientRect();
+    if (box.width === 0) return;
+    const angle = (Math.atan2(event.clientX - (box.left + box.width / 2), (box.top + box.height / 2) - event.clientY) * 180 / Math.PI + 360) % 360;
+    heading += ((angle - heading % 360) + 540) % 360 - 180;
+    needle.style.transform = `rotate(${heading}deg)`;
+    azimuth.textContent = `AZM ${angle.toFixed(1).padStart(5, '0')}°`;
+  }
+
+  hero.addEventListener('mousemove', event => {
+    if (pending) return;
+    pending = requestAnimationFrame(() => {
+      update(event);
+      pending = null;
+    });
+  });
+}
+
+/* ---------- Consola del hero: líneas de código R que se escriben solas ---------- */
+
+function initConsole() {
+  const output = document.getElementById('typedLine');
+  const LINES = [
+    'capa <- st_read("tareas/vectores/capa_vectorial.shp")',
+    'r <- rast("tareas/rasters/capa_raster.tif")',
+    'cortes <- classIntervals(datos$produccion, n = 5, style = "jenks")',
+    'leaflet(encuestados) |> addTiles() |> addCircleMarkers()',
+    'summary(st_coordinates(puntos))',
+  ];
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    output.textContent = LINES[0];
+    return;
+  }
+
+  let line = 0;
+  let chars = 0;
+  let deleting = false;
+
+  function tick() {
+    const text = LINES[line];
+    chars += deleting ? -1 : 1;
+    output.textContent = text.slice(0, chars);
+
+    let delay = deleting ? 18 : 42;
+    if (!deleting && chars === text.length) {
+      deleting = true;
+      delay = 2200;
+    } else if (deleting && chars === 0) {
+      deleting = false;
+      line = (line + 1) % LINES.length;
+      delay = 400;
+    }
+    setTimeout(tick, delay);
+  }
+
+  setTimeout(tick, 900);
+}
+
 /* ---------- Fondo animado del hero: patrón de puntos espaciales ---------- */
 
 function initHeroCanvas() {
@@ -98,7 +200,7 @@ function initHeroCanvas() {
   const ctx = canvas.getContext('2d');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const LINK_DISTANCE = 130;
-  const COLORS = ['245, 158, 11', '251, 113, 133', '201, 177, 187'];
+  const COLORS = ['60, 198, 207', '127, 227, 232', '147, 183, 189'];
 
   let width = 0;
   let height = 0;
@@ -138,7 +240,7 @@ function initHeroCanvas() {
       for (let j = i + 1; j < points.length; j++) {
         const distance = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
         if (distance < LINK_DISTANCE) {
-          ctx.strokeStyle = `rgba(245, 158, 11, ${(1 - distance / LINK_DISTANCE) * 0.13})`;
+          ctx.strokeStyle = `rgba(60, 198, 207, ${(1 - distance / LINK_DISTANCE) * 0.16})`;
           ctx.lineWidth = 0.6;
           ctx.beginPath();
           ctx.moveTo(points[i].x, points[i].y);

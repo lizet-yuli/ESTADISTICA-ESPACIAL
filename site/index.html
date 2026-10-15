@@ -6,16 +6,17 @@
   <title>Lizet Yuliana Coila Yucra — Portafolio Académico</title>
   <meta name="description" content="Portafolio digital de Estadística Espacial: proyectos, análisis y visualizaciones de Lizet Yuliana Coila Yucra, Ingeniería Estadística e Informática, UNA Puno.">
   <meta name="author" content="Lizet Yuliana Coila Yucra">
+  <meta name="theme-color" content="#03161b">
   <meta property="og:title" content="Estadística Espacial — Portafolio Académico">
   <meta property="og:description" content="Trabajos académicos de estadística espacial: proyectos, análisis y visualizaciones.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://lizet-yuli.github.io/ESTADISTICA-ESPACIAL/img/avatar.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f59e0b'/%3E%3Cg transform='translate(4 3.500)'%3E%3Cellipse cx='12' cy='18.500' rx='9' ry='3.200' fill='none' stroke='%2314070d' stroke-width='1.300' opacity='.45'/%3E%3Cellipse cx='12' cy='18.500' rx='5' ry='1.800' fill='none' stroke='%2314070d' stroke-width='1.300'/%3E%3Cpath d='M12 18.500s-5.200-5.200-5.200-9.700a5.200 5.200 0 0 1 10.400 0c0 4.500-5.200 9.700-5.200 9.700z' fill='%2314070d'/%3E%3Ccircle cx='12' cy='8.800' r='2' fill='%23f59e0b'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303161b'/%3E%3Crect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%233cc6cf' stroke-width='1.500'/%3E%3Cg transform='translate(4 3.500)'%3E%3Cellipse cx='12' cy='18.500' rx='9' ry='3.200' fill='none' stroke='%233cc6cf' stroke-width='1.300' opacity='.45'/%3E%3Cellipse cx='12' cy='18.500' rx='5' ry='1.800' fill='none' stroke='%233cc6cf' stroke-width='1.300'/%3E%3Cpath d='M12 18.500s-5.200-5.200-5.200-9.700a5.200 5.200 0 0 1 10.400 0c0 4.500-5.200 9.700-5.200 9.700z' fill='%233cc6cf'/%3E%3Ccircle cx='12' cy='8.800' r='2' fill='%2303161b'/%3E%3C/g%3E%3C/svg%3E">
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
   <!-- FontAwesome para íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -27,14 +28,17 @@
     <div class="nav-container">
       <a href="#inicio" class="logo">
         <span class="logo-icon">
-          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <ellipse cx="12" cy="18.500" rx="9" ry="3.200" fill="none" stroke="currentColor" stroke-width="1.300" opacity="0.45"/>
             <ellipse cx="12" cy="18.500" rx="5" ry="1.800" fill="none" stroke="currentColor" stroke-width="1.300"/>
             <path d="M12 18.500s-5.200-5.200-5.200-9.700a5.200 5.200 0 0 1 10.400 0c0 4.500-5.200 9.700-5.200 9.700z" fill="currentColor"/>
-            <circle cx="12" cy="8.800" r="2" fill="#f59e0b"/>
+            <circle cx="12" cy="8.800" r="2" fill="#03161b"/>
           </svg>
         </span>
-        <span>Lizet Yuliana Coila Yucra</span>
+        <span class="logo-text">
+          Lizet Coila
+          <small>GEO_PORTAFOLIO <em>v3.0</em></small>
+        </span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
         <i class="fa-solid fa-bars"></i>
@@ -43,7 +47,7 @@
         <li><a href="#inicio" class="active">Inicio</a></li>
         <li><a href="#estadisticas">Estadísticas</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#trabajos">Mis trabajos</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li>
           <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" class="nav-github" data-repo-link target="_blank" rel="noopener">
@@ -57,118 +61,82 @@
   <!-- Hero Section -->
   <section id="inicio" class="hero">
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="badge">
-          <i class="fa-solid fa-graduation-cap"></i> INGENIERÍA ESTADÍSTICA E INFORMÁTICA
-        </div>
-        <h1>ESTADÍSTICA<br><span class="highlight">ESPACIAL</span></h1>
-        <p>Portafolio digital con todos mis trabajos académicos relacionados a la estadística espacial, incluyendo proyectos, análisis y visualizaciones. Aquí podrás explorar mi experiencia y habilidades en esta área especializada.</p>
-        <div class="hero-actions">
-          <a href="#trabajos" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Ver trabajos</a>
-          <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" class="btn btn-ghost" data-repo-link target="_blank" rel="noopener">
-            <i class="fa-brands fa-github"></i> Repositorio
-          </a>
-        </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Lectura de coordenadas: sigue al cursor -->
+    <div class="hud-strip" aria-hidden="true">
+      <span class="hud-cell"><i class="fa-solid fa-crosshairs"></i> <span id="hudXY">X: 0.5000 | Y: 0.5000</span></span>
+      <span class="hud-cell">
+        <span id="hudLatLon">LAT -15.8402 · LON -70.0219</span>
+        <span class="hud-online"><i></i> EN LÍNEA</span>
+      </span>
+    </div>
+
+    <div class="hero-top">
+      <!-- Logos: coloca los archivos en site/img/; mientras no existan se muestra el ícono -->
+      <div class="inst">
+        <span class="inst-logo">
+          <img src="img/logo-facultad.png" alt="Logo de la Facultad de Ingeniería Estadística e Informática">
+          <i class="fa-solid fa-chart-simple"></i>
+        </span>
+        <div class="inst-text"><span class="inst-label">Facultad</span>Estadística<br>e Informática</div>
       </div>
-      <div class="hero-image">
-        <!-- Foto en site/img/avatar.jpg; si no existe se muestra el emblema -->
-        <figure class="hero-photo" id="heroPhoto">
-          <img src="img/avatar.jpg" alt="Lizet Yuliana Coila Yucra" id="avatar" width="720" height="1280">
-          <div class="photo-chip chip-field">
-            <span class="chip-icon"><i class="fa-solid fa-map-location-dot"></i></span>
-            <div><strong>Estadística espacial</strong><small>R · QGIS · SIG</small></div>
-          </div>
-          <div class="photo-chip chip-location">
-            <span class="chip-icon"><i class="fa-solid fa-location-dot"></i></span>
-            <div><strong>UNA Puno, Perú</strong><small>15°50′S · 70°01′W</small></div>
-          </div>
-        </figure>
-        <div class="hero-emblem" id="avatarFallback" hidden>
-          <svg viewBox="0 0 340 340" width="340" height="340" role="img" aria-label="Emblema de Lizet Coila: un marcador de ubicación sobre un mapa con curvas de nivel, celdas ráster y puntos">
-            <defs>
-              <path id="emblemRing" d="M170 18a152 152 0 1 1 0 304a152 152 0 1 1 0-304"/>
-              <clipPath id="emblemClip"><circle cx="170" cy="170" r="126"/></clipPath>
-              <radialGradient id="emblemBg" cx="35%" cy="28%" r="80%">
-                <stop offset="0" stop-color="#3a1426"/>
-                <stop offset="1" stop-color="#1f0d16"/>
-              </radialGradient>
-              <linearGradient id="emblemPin" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#fbbf24"/>
-                <stop offset="1" stop-color="#f59e0b"/>
-              </linearGradient>
-              <pattern id="emblemGrid" x="2" y="2" width="21" height="21" patternUnits="userSpaceOnUse">
-                <path d="M21 0H0V21" fill="none" stroke="#c9b1bb" stroke-opacity="0.12"/>
-              </pattern>
-            </defs>
 
-            <!-- Anillo de texto con las coordenadas de Puno -->
-            <g class="emblem-spin">
-              <text><textPath class="emblem-text" href="#emblemRing" textLength="946">LIZET COILA · ESTADÍSTICA ESPACIAL · UNA PUNO · 15°50′S 70°01′W · </textPath></text>
-            </g>
+      <div class="hud-compass" id="hudCompass" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="120" height="120">
+          <circle cx="60" cy="60" r="56" class="compass-ring"/>
+          <circle cx="60" cy="60" r="47" class="compass-ticks"/>
+          <circle cx="60" cy="60" r="34" class="compass-ring faint"/>
+          <text x="60" y="13" class="compass-n">N</text>
+          <g class="compass-needle" id="compassNeedle">
+            <path d="M60 30L65 60L60 66L55 60Z" class="needle-n"/>
+            <path d="M60 90L65 60L60 54L55 60Z" class="needle-s"/>
+          </g>
+          <circle cx="60" cy="60" r="3" class="compass-hub"/>
+        </svg>
+        <span class="compass-readout" id="hudAzimuth">AZM 000.0°</span>
+        <ul class="compass-meta">
+          <li>CRS: EPSG:4326</li>
+          <li>DATUM: WGS84</li>
+          <li>UNIDAD: GRADOS</li>
+        </ul>
+      </div>
 
-            <!-- Marcas de brújula y borde -->
-            <circle cx="170" cy="170" r="137" fill="none" stroke="#c9b1bb" stroke-opacity="0.35" stroke-width="5" stroke-dasharray="1.2 10.756"/>
-            <circle cx="170" cy="170" r="127" fill="url(#emblemBg)" stroke="#f59e0b" stroke-width="1.5"/>
-
-            <!-- Mapa: cuadrícula ráster, celdas clasificadas, curvas de nivel y puntos -->
-            <g clip-path="url(#emblemClip)">
-              <rect width="340" height="340" fill="url(#emblemGrid)"/>
-              <g class="emblem-cells" fill="#fb7185">
-                <rect x="44" y="170" width="21" height="21" opacity="0.14"/>
-                <rect x="65" y="170" width="21" height="21" opacity="0.26"/>
-                <rect x="44" y="191" width="21" height="21" opacity="0.22"/>
-                <rect x="65" y="191" width="21" height="21" opacity="0.42"/>
-                <rect x="86" y="191" width="21" height="21" opacity="0.18"/>
-                <rect x="65" y="212" width="21" height="21" opacity="0.3"/>
-                <rect x="86" y="212" width="21" height="21" opacity="0.46" fill="#f59e0b"/>
-                <rect x="107" y="212" width="21" height="21" opacity="0.2"/>
-                <rect x="86" y="233" width="21" height="21" opacity="0.28"/>
-                <rect x="107" y="233" width="21" height="21" opacity="0.36" fill="#f59e0b"/>
-                <rect x="128" y="233" width="21" height="21" opacity="0.14"/>
-              </g>
-              <g fill="none" stroke="#c9b1bb" stroke-opacity="0.38" stroke-width="1.1">
-                <ellipse cx="236" cy="102" rx="18" ry="11" transform="rotate(-28 236 102)"/>
-                <ellipse cx="232" cy="106" rx="38" ry="24" transform="rotate(-28 232 106)"/>
-                <ellipse cx="226" cy="112" rx="60" ry="39" transform="rotate(-28 226 112)"/>
-                <ellipse cx="218" cy="120" rx="84" ry="56" transform="rotate(-28 218 120)"/>
-              </g>
-              <g stroke="#f59e0b" stroke-opacity="0.3" stroke-width="0.9">
-                <path d="M78 112L102 84L140 96L120 128L78 112M120 128L92 146" fill="none"/>
-                <path d="M262 188L238 214L250 246L222 252" fill="none"/>
-              </g>
-              <g>
-                <circle cx="78" cy="112" r="3" fill="#fb7185"/>
-                <circle cx="102" cy="84" r="2.4" fill="#f59e0b"/>
-                <circle cx="140" cy="96" r="2.6" fill="#c9b1bb"/>
-                <circle cx="120" cy="128" r="3.4" fill="#f59e0b"/>
-                <circle cx="92" cy="146" r="2.4" fill="#fb7185"/>
-                <circle cx="262" cy="188" r="2.6" fill="#fb7185"/>
-                <circle cx="238" cy="214" r="3.2" fill="#c9b1bb"/>
-                <circle cx="250" cy="246" r="2.4" fill="#f59e0b"/>
-                <circle cx="222" cy="252" r="2.8" fill="#fb7185"/>
-              </g>
-            </g>
-
-            <!-- Punto que orbita el borde -->
-            <g class="emblem-orbit">
-              <circle cx="170" cy="43" r="8" fill="#f59e0b" opacity="0.2"/>
-              <circle cx="170" cy="43" r="4" fill="#f59e0b"/>
-            </g>
-
-            <!-- Marcador de ubicación con las iniciales -->
-            <ellipse class="emblem-ripple" cx="170" cy="242" rx="46" ry="14" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-            <ellipse class="emblem-ripple delay" cx="170" cy="242" rx="46" ry="14" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-            <ellipse cx="170" cy="242" rx="13" ry="4" fill="#0a0306" opacity="0.55"/>
-            <g class="emblem-pin">
-              <path d="M170 238C170 238 124 192 124 150A46 46 0 1 1 216 150C216 192 170 238 170 238Z" fill="url(#emblemPin)"/>
-              <circle cx="170" cy="150" r="34" fill="#14070d"/>
-              <text class="emblem-initials" x="170" y="161.500" text-anchor="middle">LC</text>
-            </g>
-          </svg>
-        </div>
+      <div class="inst inst-right">
+        <div class="inst-text"><span class="inst-label">Universidad</span>Nacional<br>del Altiplano</div>
+        <span class="inst-logo">
+          <img src="img/logo-unap.png" alt="Logo de la Universidad Nacional del Altiplano">
+          <i class="fa-solid fa-building-columns"></i>
+        </span>
       </div>
     </div>
+
+    <div class="hero-center">
+      <p class="hero-kicker">[ PORTAFOLIO_ACADÉMICO // UNA PUNO ]</p>
+      <h1 class="hero-title">
+        <span class="title-line">ESTADÍSTICA</span>
+        <span class="title-line highlight">ESPACIAL</span>
+      </h1>
+      <p class="hero-name"><span>Lizet Yuliana Coila Yucra</span></p>
+
+      <div class="hero-console">
+        <div class="console-head">
+          <span class="console-dots"><i></i><i></i><i></i></span>
+          <span>portafolio.R</span>
+          <span class="console-tag">R 4.x</span>
+        </div>
+        <p class="console-desc"># Portafolio digital con mis trabajos académicos de estadística espacial: proyectos, análisis y visualizaciones.</p>
+        <p class="console-line"><span class="prompt">&gt;</span> <span id="typedLine"></span><span class="caret"></span></p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#trabajos" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Ver trabajos</a>
+        <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" class="btn btn-ghost" data-repo-link target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i> Repositorio
+        </a>
+      </div>
+    </div>
+
     <a href="#estadisticas" class="hero-scroll" aria-label="Ir a las estadísticas">
       <span>Explorar</span>
       <i class="fa-solid fa-arrow-down"></i>
@@ -211,50 +179,141 @@
 
   <!-- Sección Sobre mí -->
   <section id="sobre-mi" class="about-section">
-    <div class="container about-grid">
-      <div class="about-text">
-        <span class="sub-title">SOBRE MÍ</span>
-        <h2>Hola, soy Lizet</h2>
-        <div class="divider"></div>
-        <p>Soy estudiante de Ingeniería Estadística e Informática en la Universidad Nacional del Altiplano, en Puno. En este portafolio reúno mis trabajos del curso de Estadística Espacial: análisis de datos georreferenciados, comparación de datos vectoriales y ráster, mapas temáticos e interactivos y clasificación de variables con métodos como los cortes naturales de Jenks.</p>
-        <p>Me interesa convertir datos con ubicación en mapas y visualizaciones claras que ayuden a entender lo que ocurre en el territorio.</p>
+    <div class="container">
+      <span class="sub-title">// 01 · SOBRE MÍ</span>
+      <h2>Hola, soy Lizet</h2>
+      <div class="divider"></div>
 
-        <ul class="about-facts">
-          <li>
-            <span class="fact-icon"><i class="fa-solid fa-graduation-cap"></i></span>
-            <div><span class="fact-label">Carrera</span>Ingeniería Estadística e Informática</div>
-          </li>
-          <li>
-            <span class="fact-icon"><i class="fa-solid fa-building-columns"></i></span>
-            <div><span class="fact-label">Universidad</span>UNA Puno</div>
-          </li>
-          <li>
-            <span class="fact-icon"><i class="fa-solid fa-map-location-dot"></i></span>
-            <div><span class="fact-label">Curso</span>Estadística Espacial</div>
-          </li>
-          <li>
-            <span class="fact-icon"><i class="fa-solid fa-location-dot"></i></span>
-            <div><span class="fact-label">Ubicación</span>Puno, Perú</div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="about-card">
-        <h3>Herramientas</h3>
-        <div class="skill-chips">
-          <span><i class="fa-brands fa-r-project"></i> R</span>
-          <span><i class="fa-solid fa-earth-americas"></i> QGIS</span>
-          <span><i class="fa-brands fa-html5"></i> HTML y CSS</span>
-          <span><i class="fa-brands fa-github"></i> Git y GitHub</span>
+      <div class="about-grid">
+        <div class="about-media">
+          <!-- Foto en site/img/avatar.jpg; si no existe se muestra el emblema -->
+          <figure class="profile-photo" id="profilePhoto">
+            <img src="img/avatar.jpg" alt="Lizet Yuliana Coila Yucra" id="avatar" width="720" height="1280">
+            <div class="photo-chip chip-field">
+              <span class="chip-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+              <div><strong>Estadística espacial</strong><small>R · QGIS · SIG</small></div>
+            </div>
+            <div class="photo-chip chip-location">
+              <span class="chip-icon"><i class="fa-solid fa-location-dot"></i></span>
+              <div><strong>UNA Puno, Perú</strong><small>15°50′S · 70°01′W</small></div>
+            </div>
+          </figure>
+          <div class="hero-emblem" id="avatarFallback" hidden>
+            <svg viewBox="0 0 340 340" width="340" height="340" role="img" aria-label="Emblema de Lizet Coila: un marcador de ubicación sobre un mapa con curvas de nivel, celdas ráster y puntos">
+              <defs>
+                <path id="emblemRing" d="M170 18a152 152 0 1 1 0 304a152 152 0 1 1 0-304"/>
+                <clipPath id="emblemClip"><circle cx="170" cy="170" r="126"/></clipPath>
+                <radialGradient id="emblemBg" cx="35%" cy="28%" r="80%">
+                  <stop offset="0" stop-color="#0b3f4a"/>
+                  <stop offset="1" stop-color="#062a33"/>
+                </radialGradient>
+                <linearGradient id="emblemPin" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#7fe3e8"/>
+                  <stop offset="1" stop-color="#3cc6cf"/>
+                </linearGradient>
+                <pattern id="emblemGrid" x="2" y="2" width="21" height="21" patternUnits="userSpaceOnUse">
+                  <path d="M21 0H0V21" fill="none" stroke="#8fb3b9" stroke-opacity="0.12"/>
+                </pattern>
+              </defs>
+              <g class="emblem-spin">
+                <text><textPath class="emblem-text" href="#emblemRing" textLength="946">LIZET COILA · ESTADÍSTICA ESPACIAL · UNA PUNO · 15°50′S 70°01′W · </textPath></text>
+              </g>
+              <circle cx="170" cy="170" r="137" fill="none" stroke="#8fb3b9" stroke-opacity="0.35" stroke-width="5" stroke-dasharray="1.2 10.756"/>
+              <circle cx="170" cy="170" r="127" fill="url(#emblemBg)" stroke="#3cc6cf" stroke-width="1.5"/>
+              <g clip-path="url(#emblemClip)">
+                <rect width="340" height="340" fill="url(#emblemGrid)"/>
+                <g class="emblem-cells" fill="#3cc6cf">
+                  <rect x="44" y="170" width="21" height="21" opacity="0.14"/>
+                  <rect x="65" y="170" width="21" height="21" opacity="0.26"/>
+                  <rect x="44" y="191" width="21" height="21" opacity="0.22"/>
+                  <rect x="65" y="191" width="21" height="21" opacity="0.42"/>
+                  <rect x="86" y="191" width="21" height="21" opacity="0.18"/>
+                  <rect x="65" y="212" width="21" height="21" opacity="0.3"/>
+                  <rect x="86" y="212" width="21" height="21" opacity="0.5"/>
+                  <rect x="107" y="212" width="21" height="21" opacity="0.2"/>
+                  <rect x="86" y="233" width="21" height="21" opacity="0.28"/>
+                  <rect x="107" y="233" width="21" height="21" opacity="0.4"/>
+                  <rect x="128" y="233" width="21" height="21" opacity="0.14"/>
+                </g>
+                <g fill="none" stroke="#8fb3b9" stroke-opacity="0.38" stroke-width="1.1">
+                  <ellipse cx="236" cy="102" rx="18" ry="11" transform="rotate(-28 236 102)"/>
+                  <ellipse cx="232" cy="106" rx="38" ry="24" transform="rotate(-28 232 106)"/>
+                  <ellipse cx="226" cy="112" rx="60" ry="39" transform="rotate(-28 226 112)"/>
+                  <ellipse cx="218" cy="120" rx="84" ry="56" transform="rotate(-28 218 120)"/>
+                </g>
+                <g stroke="#3cc6cf" stroke-opacity="0.3" stroke-width="0.9">
+                  <path d="M78 112L102 84L140 96L120 128L78 112M120 128L92 146" fill="none"/>
+                  <path d="M262 188L238 214L250 246L222 252" fill="none"/>
+                </g>
+                <g fill="#7fe3e8">
+                  <circle cx="78" cy="112" r="3"/>
+                  <circle cx="102" cy="84" r="2.4"/>
+                  <circle cx="140" cy="96" r="2.6" fill="#8fb3b9"/>
+                  <circle cx="120" cy="128" r="3.4"/>
+                  <circle cx="92" cy="146" r="2.4"/>
+                  <circle cx="262" cy="188" r="2.6"/>
+                  <circle cx="238" cy="214" r="3.2" fill="#8fb3b9"/>
+                  <circle cx="250" cy="246" r="2.4"/>
+                  <circle cx="222" cy="252" r="2.8"/>
+                </g>
+              </g>
+              <g class="emblem-orbit">
+                <circle cx="170" cy="43" r="8" fill="#3cc6cf" opacity="0.2"/>
+                <circle cx="170" cy="43" r="4" fill="#3cc6cf"/>
+              </g>
+              <ellipse class="emblem-ripple" cx="170" cy="242" rx="46" ry="14" fill="none" stroke="#3cc6cf" stroke-width="1.5"/>
+              <ellipse class="emblem-ripple delay" cx="170" cy="242" rx="46" ry="14" fill="none" stroke="#3cc6cf" stroke-width="1.5"/>
+              <ellipse cx="170" cy="242" rx="13" ry="4" fill="#010a0c" opacity="0.55"/>
+              <g class="emblem-pin">
+                <path d="M170 238C170 238 124 192 124 150A46 46 0 1 1 216 150C216 192 170 238 170 238Z" fill="url(#emblemPin)"/>
+                <circle cx="170" cy="150" r="34" fill="#03161b"/>
+                <text class="emblem-initials" x="170" y="161.500" text-anchor="middle">LC</text>
+              </g>
+            </svg>
+          </div>
         </div>
-        <h3>Temas del curso</h3>
-        <div class="skill-chips topics">
-          <span>Datos vectoriales y ráster</span>
-          <span>Georreferenciación</span>
-          <span>Mapas interactivos</span>
-          <span>Cortes naturales de Jenks</span>
-          <span>Dashboards</span>
-          <span>Distribución normal</span>
+
+        <div class="about-text">
+          <p>Soy estudiante de Ingeniería Estadística e Informática en la Universidad Nacional del Altiplano, en Puno. En este portafolio reúno mis trabajos del curso de Estadística Espacial: análisis de datos georreferenciados, comparación de datos vectoriales y ráster, mapas temáticos e interactivos y clasificación de variables con métodos como los cortes naturales de Jenks.</p>
+          <p>Me interesa convertir datos con ubicación en mapas y visualizaciones claras que ayuden a entender lo que ocurre en el territorio.</p>
+
+          <ul class="about-facts">
+            <li>
+              <span class="fact-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+              <div><span class="fact-label">Carrera</span>Ingeniería Estadística e Informática</div>
+            </li>
+            <li>
+              <span class="fact-icon"><i class="fa-solid fa-building-columns"></i></span>
+              <div><span class="fact-label">Universidad</span>UNA Puno</div>
+            </li>
+            <li>
+              <span class="fact-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+              <div><span class="fact-label">Curso</span>Estadística Espacial</div>
+            </li>
+            <li>
+              <span class="fact-icon"><i class="fa-solid fa-location-dot"></i></span>
+              <div><span class="fact-label">Ubicación</span>Puno, Perú</div>
+            </li>
+          </ul>
+
+          <div class="about-card">
+            <h3>Herramientas</h3>
+            <div class="skill-chips">
+              <span><i class="fa-brands fa-r-project"></i> R</span>
+              <span><i class="fa-solid fa-earth-americas"></i> QGIS</span>
+              <span><i class="fa-brands fa-html5"></i> HTML y CSS</span>
+              <span><i class="fa-brands fa-github"></i> Git y GitHub</span>
+            </div>
+            <h3>Temas del curso</h3>
+            <div class="skill-chips topics">
+              <span>Datos vectoriales y ráster</span>
+              <span>Georreferenciación</span>
+              <span>Mapas interactivos</span>
+              <span>Cortes naturales de Jenks</span>
+              <span>Dashboards</span>
+              <span>Distribución normal</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -263,14 +322,14 @@
   <!-- Sección Trabajos -->
   <section id="trabajos" class="portfolio-section">
     <div class="container">
-      <span class="sub-title">TRABAJOS</span>
+      <span class="sub-title">// 02 · TRABAJOS</span>
       <h2>Portafolio académico</h2>
       <div class="divider"></div>
 
       <!-- Unidades + buscador -->
       <div class="filters-header">
         <div class="unit-tabs" id="unitTabs" role="group" aria-label="Filtrar por unidad">
-          <button class="unit-tab active" data-unit="todas">Todas las unidades</button>
+          <button class="unit-tab active" data-unit="todas"><i class="fa-solid fa-border-all"></i> Todas</button>
           <!-- Las unidades se agregan desde app.js -->
         </div>
         <div class="search-wrapper">
@@ -307,7 +366,7 @@
   <!-- Sección Contacto -->
   <section id="contacto" class="contact-section">
     <div class="container">
-      <span class="sub-title">CONTACTO</span>
+      <span class="sub-title">// 03 · CONTACTO</span>
       <h2>Información de contacto</h2>
       <div class="divider"></div>
 
@@ -341,10 +400,10 @@
   <footer class="footer">
     <div class="footer-links">
       <a href="#inicio">Inicio</a>
-      <a href="#trabajos">Mis trabajos</a>
+      <a href="#trabajos">Trabajos</a>
       <a href="https://github.com/lizet-yuli/ESTADISTICA-ESPACIAL" data-repo-link target="_blank" rel="noopener">GitHub</a>
     </div>
-    <p>Estadística Espacial · Portafolio académico · UNA Puno</p>
+    <p>ESTADÍSTICA ESPACIAL · PORTAFOLIO ACADÉMICO · UNA PUNO · 15°50′S 70°01′W</p>
   </footer>
 
   <!-- Visor de imágenes de los trabajos -->
