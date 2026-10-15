@@ -98,7 +98,7 @@ function initHeroCanvas() {
   const ctx = canvas.getContext('2d');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const LINK_DISTANCE = 130;
-  const COLORS = ['245, 158, 11', '56, 189, 248', '148, 163, 184'];
+  const COLORS = ['245, 158, 11', '251, 113, 133', '201, 177, 187'];
 
   let width = 0;
   let height = 0;
